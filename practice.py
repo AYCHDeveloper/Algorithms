@@ -8,3 +8,5 @@ d['python'].append("language")
 
 for i in d.items():
 	print(i)
+
+print("hello")	
