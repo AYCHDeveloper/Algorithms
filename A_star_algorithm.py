@@ -13,14 +13,26 @@ class Graph:
 
 	# heuristic function with equal values for all nodes
 
+	# def h(self, n):
+	# 	H = {
+	# 	'A':1,
+	# 	'B':1,
+	# 	'C':1,
+	# 	'D':1
+	# 	}
+	# 	return H[n]
+
 	def h(self, n):
 		H = {
-		'A':1,
-		'B':1,
-		'C':1,
-		'D':1
+		'S':4,
+		'A':2,
+		'B':6,
+		'C':2,
+		'D':3,
+		'G':0
 		}
-		return H[n]
+		return H[n]	
+
 
 	def a_star_algorithm(self, start_node, stop_node):
 		# open_list: list of nodes,visited but who neighbours haven't been inspected
@@ -105,5 +117,23 @@ adjacency_list2 = {
 	'C':[('D',12)]
 }		
 
-graph1 = Graph(adjacency_list2)
-graph1.a_star_algorithm('A','D')						
+adjacency_list1 = {
+	'S':[('A',1),('G',12)],
+	'A':[('B',3),('C',1)],
+	'B':[('D',3)],
+	'D':[('G',0)],
+	'C':[('D',1),('G',0)]
+}
+
+#graph1 = Graph(adjacency_list2)
+#graph1.a_star_algorithm('A','D')			
+
+print("\n \n \n ")
+print("=======================A star Algorithm, A*========================")
+print("--> This is basic and straightforward implementation of popular A* algorithm")
+print("--> Input graph can be given using dictionary in python, heuristic values can be defined in \" def h(self,n) \" function. ")
+print("	Happy Searching!! \n")
+
+
+graph2 = Graph(adjacency_list1)
+graph2.a_star_algorithm('S','G')
