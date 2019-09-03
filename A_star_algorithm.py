@@ -13,7 +13,7 @@ class Graph:
 
 	# heuristic function with equal values for all nodes
 
-	def h_value(self, n):
+	def h(self, n):
 		H = {
 		'A':1,
 		'B':1,
@@ -32,6 +32,7 @@ class Graph:
 		# the default value (if it's not found in the map) is +infinity
 
 		g = {}
+		g[start_node] = 0
 
 		#parents contains an adjacency map of all nodes
 		parents = {}
@@ -43,7 +44,7 @@ class Graph:
 			# find a node with the lowest value of f() - evaluation function
 			for v in open_list:
 				if n == None or g[v] + self.h(v) < g[n] + self.h(n):
-					n = v
+					n = v;
 			if n == None:
 				print('Path does not exist')
 				return None
@@ -105,4 +106,4 @@ adjacency_list2 = {
 }		
 
 graph1 = Graph(adjacency_list2)
-graph1.a_star_algorithm('C','D')						
+graph1.a_star_algorithm('A','D')						
